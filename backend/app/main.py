@@ -1,6 +1,6 @@
 import logging
 
-from app.api.v1 import auth, health, portfolio
+from app.api.v1 import auth, health, portfolio, watchlist
 from app.core.config import settings
 from app.core.logging import configure_logging
 from fastapi import FastAPI
@@ -28,6 +28,7 @@ app.add_middleware(
 app.include_router(health.router, prefix=settings.API_V1_PREFIX)
 app.include_router(auth.router, prefix=settings.API_V1_PREFIX)
 app.include_router(portfolio.router, prefix=settings.API_V1_PREFIX)
+app.include_router(watchlist.router, prefix=settings.API_V1_PREFIX)
 
 
 @app.on_event("startup")

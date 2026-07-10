@@ -29,3 +29,13 @@ class UserNotFoundError(AppError):
 class InactiveUserError(AppError):
     def __init__(self):
         super().__init__("This account has been deactivated.")
+
+
+class WatchlistItemNotFoundError(AppError):
+    def __init__(self):
+        super().__init__("Watchlist item not found.")
+
+
+class WatchlistItemAlreadyExistsError(AppError):
+    def __init__(self, symbol: str):
+        super().__init__(f"{symbol} is already on your watchlist.")
