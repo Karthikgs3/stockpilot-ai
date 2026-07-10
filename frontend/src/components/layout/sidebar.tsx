@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  BarChart3,
   Bot,
   LayoutDashboard,
   LineChart,
@@ -18,6 +19,7 @@ const NAV_ITEMS = [
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { label: "Portfolio", href: "/portfolio", icon: Wallet },
   { label: "Watchlist", href: "/watchlist", icon: LineChart },
+  { label: "Analytics", href: "/analytics", icon: BarChart3 },
   { label: "News", href: "/news", icon: Newspaper },
   { label: "AI Assistant", href: "/assistant", icon: Bot },
   { label: "Settings", href: "/settings", icon: Settings },
