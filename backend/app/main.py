@@ -1,6 +1,8 @@
 import logging
 
-from app.api.v1 import analytics, auth, health, news, portfolio, watchlist
+from app.api.v1 import analytics, auth, health, news, portfolio
+from app.api.v1 import settings as settings_router
+from app.api.v1 import watchlist
 from app.core.config import settings
 from app.core.logging import configure_logging
 from fastapi import FastAPI
@@ -31,6 +33,7 @@ app.include_router(portfolio.router, prefix=settings.API_V1_PREFIX)
 app.include_router(watchlist.router, prefix=settings.API_V1_PREFIX)
 app.include_router(analytics.router, prefix=settings.API_V1_PREFIX)
 app.include_router(news.router, prefix=settings.API_V1_PREFIX)
+app.include_router(settings_router.router, prefix=settings.API_V1_PREFIX)
 
 
 @app.on_event("startup")

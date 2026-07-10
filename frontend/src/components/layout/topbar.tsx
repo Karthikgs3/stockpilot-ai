@@ -1,15 +1,20 @@
 "use client";
 
-import { LogOut, Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import { LogOut, Monitor, Moon, Sun } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { useAuth } from "@/lib/auth-context";
+import { getStoredTheme, initTheme, setTheme, ThemePreference } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
 export function Topbar({ title, description }: { title: string; description?: string }) {
   const { user, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [themePreference, setThemePreference] = useState<ThemePreference>("system");
+
+  useEffect(() => {
+    setThemePreference(initTheme());
+  }, []);
 
   const initials = user?.full_name
     ?.split(" ")
@@ -18,12 +23,17 @@ export function Topbar({ title, description }: { title: string; description?: st
     .join("")
     .toUpperCase();
 
-  const toggleTheme = () => {
-    setIsDark((prev) => {
-      document.documentElement.classList.toggle("dark", !prev);
-      return !prev;
-    });
+  // Cycles light -> dark -> system, staying in sync with whatever the
+  // Settings page's Appearance section last set via lib/theme.ts.
+  const cycleTheme = () => {
+    const order: ThemePreference[] = ["light", "dark", "system"];
+    const current = getStoredTheme();
+    const next = order[(order.indexOf(current) + 1) % order.length];
+    setTheme(next);
+    setThemePreference(next);
   };
+
+  const ThemeIcon = themePreference === "light" ? Sun : themePreference === "dark" ? Moon : Monitor;
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/80 px-6 backdrop-blur-glass">
@@ -34,11 +44,12 @@ export function Topbar({ title, description }: { title: string; description?: st
 
       <div className="flex items-center gap-2">
         <button
-          onClick={toggleTheme}
-          aria-label="Toggle theme"
+          onClick={cycleTheme}
+          aria-label={`Theme: ${themePreference}. Click to change.`}
+          title={`Theme: ${themePreference}`}
           className="flex h-9 w-9 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
         >
-          {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          <ThemeIcon className="h-4 w-4" />
         </button>
 
         <div className="relative">
