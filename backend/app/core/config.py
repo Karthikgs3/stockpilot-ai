@@ -4,6 +4,7 @@ All environment-driven settings live here so the rest of the app never
 touches os.environ directly.
 """
 from functools import lru_cache
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -34,6 +35,10 @@ class Settings(BaseSettings):
     # Market data
     ALPHA_VANTAGE_API_KEY: str | None = None
     ALPHA_VANTAGE_BASE_URL: str = "https://www.alphavantage.co/query"
+
+    # News (Finnhub)
+    FINNHUB_API_KEY: str | None = None
+    FINNHUB_BASE_URL: str = "https://finnhub.io/api/v1"
 
     # AI
     ANTHROPIC_API_KEY: str | None = None
