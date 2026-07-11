@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str
 
     # CORS
-    FRONTEND_ORIGIN: str = "http://localhost:3000"
+    FRONTEND_ORIGIN: str = "https://stockpilot-ai-nine.vercel.app"
 
     # Redis
     REDIS_URL: str | None = None
