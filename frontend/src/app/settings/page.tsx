@@ -1,7 +1,6 @@
 "use client";
 
 import { AppShell } from "@/components/layout/app-shell";
-import { AboutSection } from "@/features/settings/about-section";
 import { AppearanceSection } from "@/features/settings/appearance-section";
 import { NotificationsSection } from "@/features/settings/notifications-section";
 import { PreferencesSection } from "@/features/settings/preferences-section";
@@ -20,7 +19,6 @@ export default function SettingsPage() {
         <PreferencesSection user={user} />
         <NotificationsSection />
         <SecuritySection />
-        <AboutSection />
       </div>
     </AppShell>
   );

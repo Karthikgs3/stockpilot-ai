@@ -3,6 +3,7 @@
 import {
   BarChart3,
   Bot,
+  Info,
   LayoutDashboard,
   LineChart,
   Newspaper,
@@ -23,6 +24,7 @@ const NAV_ITEMS = [
   { label: "News", href: "/news", icon: Newspaper },
   { label: "AI Assistant", href: "/assistant", icon: Bot },
   { label: "Settings", href: "/settings", icon: Settings },
+  { label: "About", href: "/about", icon: Info },
 ];
 
 export function Sidebar() {
