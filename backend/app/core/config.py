@@ -40,6 +40,11 @@ class Settings(BaseSettings):
     FINNHUB_API_KEY: str | None = None
     FINNHUB_BASE_URL: str = "https://finnhub.io/api/v1"
 
+    # AI Assistant (OpenRouter)
+    OPENROUTER_API_KEY: str | None = None
+    OPENROUTER_BASE_URL: str = "https://openrouter.ai/api/v1"
+    OPENROUTER_MODEL: str | None = None
+
     # AI
     ANTHROPIC_API_KEY: str | None = None
 
