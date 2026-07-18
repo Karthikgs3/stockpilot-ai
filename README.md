@@ -83,18 +83,7 @@ frontend/
 backend/
 ```
 
----
 
-## 📸 Preview
-
-> Add screenshots of:
->
-> - Dashboard
-> - Portfolio page
-> - Analytics page
-> - News page
-
----
 
 ## 📫 Connect
 
