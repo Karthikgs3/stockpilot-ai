@@ -76,12 +76,7 @@ uvicorn app.main:app --reload
 
 ---
 
-## 📂 Project Structure
 
-```
-frontend/
-backend/
-```
 
 
 
