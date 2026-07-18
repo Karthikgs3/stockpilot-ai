@@ -1,77 +1,103 @@
-# StockPilot AI
+# 📈 StockPilot AI
 
-Your AI-powered investment research and portfolio intelligence platform.
+An AI-powered stock analysis and portfolio management platform that helps users analyze market trends, track investments, and make informed decisions through interactive dashboards and AI-generated insights.
 
-> ⚠️ This is a learning/portfolio project. Nothing here constitutes financial advice.
+## 🌐 Live Demo
 
-## Status: Phase 1 — Project Scaffolding ✅
+**https://stockpilot-ai-nine.vercel.app/**
 
-Architecture: `Next.js → FastAPI (routers) → Services → Repositories → PostgreSQL`
+---
 
-## Repo layout
+## 🚀 Features
 
-```
-stockpilot-ai/
-  backend/    FastAPI app (clean architecture: api → services → repositories → db)
-  frontend/   Next.js 14 (App Router) + TypeScript + Tailwind
-```
+- AI-powered stock insights
+- Interactive analytics dashboard
+- Portfolio tracking and performance monitoring
+- Market news integration
+- User authentication
+- Responsive modern UI
+- Secure REST API backend
 
-## Backend setup
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend
+- FastAPI
+- Python
+- REST APIs
+
+### Database
+- PostgreSQL
+
+### Deployment
+- Vercel
+- Railway
+
+---
+
+## 💻 Run Locally
+
+Clone the repository:
 
 ```bash
-cd backend
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env            # then fill in DATABASE_URL and SECRET_KEY
-uvicorn app.main:app --reload   # http://localhost:8000/docs
+git clone https://github.com/Karthikgs3/StockPilot-AI.git
 ```
 
-Generate a `SECRET_KEY`:
+Navigate to the project:
+
 ```bash
-python -c "import secrets; print(secrets.token_urlsafe(64))"
+cd StockPilot-AI
 ```
 
-Get a free Postgres `DATABASE_URL` from [neon.tech](https://neon.tech) (used for `DATABASE_URL`).
-
-Verify it's working:
-- `GET http://localhost:8000/` → welcome message
-- `GET http://localhost:8000/api/v1/health` → `{"status": "ok"}`
-- `GET http://localhost:8000/api/v1/health/db` → confirms DB connectivity
-
-## Frontend setup
+Install frontend dependencies:
 
 ```bash
-cd frontend
 npm install
-cp .env.local.example .env.local
-npm run dev                     # http://localhost:3000
 ```
 
-## What's included in this phase
+Start the frontend:
 
-- Clean architecture skeleton on the backend (api / services / repositories / models / schemas / core / db)
-- Centralized, typed settings via `pydantic-settings`
-- SQLAlchemy engine + session dependency, ready for models
-- Health check endpoints (app + DB connectivity)
-- CORS configured for the Next.js origin
-- Structured logging
-- Next.js App Router + TypeScript + Tailwind, with design tokens (light/dark mode CSS variables) matching the StockPilot AI palette (blue primary, emerald accent, green/amber/red for gains/warnings/losses)
-- Typed API client (axios) with an auth-token interceptor stub, ready for Phase 3
+```bash
+npm run dev
+```
 
-## Roadmap
+Start the backend (from the backend directory):
 
-1. ✅ Project scaffolding
-2. Database schema & models
-3. Authentication
-4. Portfolio CRUD (holdings, P&L)
-5. Dashboard UI
-6. Stock details page + Alpha Vantage integration
-7. Watchlist + price alerts
-8. News feed + AI summarization
-9. AI portfolio assistant
-10. Analytics & charts
-11. Notifications
-12. Settings
-13. Polish pass (loading/empty/error states, animation, a11y)
-14. Documentation (diagrams, API docs, deployment guide)
+```bash
+uvicorn app.main:app --reload
+```
+
+---
+
+## 📂 Project Structure
+
+```
+frontend/
+backend/
+```
+
+---
+
+## 📸 Preview
+
+> Add screenshots of:
+>
+> - Dashboard
+> - Portfolio page
+> - Analytics page
+> - News page
+
+---
+
+## 📫 Connect
+
+- 🌐 **Portfolio:** https://karthik-portfolio-brown.vercel.app/
+- 💻 **GitHub:** https://github.com/Karthikgs3
+- 📧 **Email:** karthikgsharma043@gmail.com
